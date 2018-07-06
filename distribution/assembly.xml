@@ -1,0 +1,35 @@
+<assembly>
+    <id>server-dist</id>
+
+    <formats>
+        <format>zip</format>
+        <format>tar.gz</format>
+    </formats>
+
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>target/${project.build.finalName}</directory>
+            <outputDirectory/>
+            <filtered>true</filtered>
+            <includes>
+                <include>**/module.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/${project.build.finalName}</directory>
+            <outputDirectory/>
+            <filtered>false</filtered>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/${project.build.finalName}</directory>
+            <outputDirectory/>
+            <includes>
+                <include>bin/*.sh</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+    </fileSets>
+</assembly>

@@ -1,0 +1,5 @@
+<server-provisioning xmlns="urn:wildfly:server-provisioning:1.2" extract-schemas="true" copy-module-artifacts="true">
+    <feature-packs>
+        <feature-pack groupId="io.opentracing.contrib" artifactId="java-wildfly-feature-pack" version="${project.version}"/>
+    </feature-packs>
+</server-provisioning>

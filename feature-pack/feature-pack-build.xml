@@ -1,0 +1,11 @@
+<build xmlns="urn:wildfly:feature-pack-build:1.0">
+    <dependencies>
+        <artifact name="org.wildfly:wildfly-feature-pack" />
+    </dependencies>
+    <config>
+        <standalone
+                template="configuration/standalone/template.xml"
+                subsystems="configuration/standalone/subsystems.xml"
+                output-file="standalone/configuration/standalone.xml" />
+    </config>
+</build>

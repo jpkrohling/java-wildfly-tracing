@@ -55,6 +55,8 @@
     </properties>
 
     <modules>
+        <module>distribution</module>
+        <module>feature-pack</module>
         <module>subsystem</module>
     </modules>
 
