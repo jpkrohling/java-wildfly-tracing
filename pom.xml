@@ -48,23 +48,50 @@
         <version.opentracing.tracerresolver>0.1.4</version.opentracing.tracerresolver>
         <version.opentracing.servlet>0.1.0</version.opentracing.servlet>
 
+        <version.org.jboss.logging>2.0.1.Final</version.org.jboss.logging>
         <version.org.jboss.shrinkwrap.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap.shrinkwrap>
         <version.wildfly>11.0.0.Final</version.wildfly>
-        <version.wildfly-core>5.0.0.Final</version.wildfly-core>
+        <version.wildfly-core>3.1.0.Final</version.wildfly-core>
         <version.wildfly.build-tools>1.2.2.Final</version.wildfly.build-tools>
     </properties>
 
     <modules>
-        <module>subsystem</module>
+        <module>dist</module>
+        <module>feature-pack</module>
+        <module>extension</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Our own modules -->
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>java-wildfly-feature-pack</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>java-wildfly-feature-pack</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
+
             <dependency>
                 <groupId>org.wildfly.core</groupId>
                 <artifactId>wildfly-subsystem-test</artifactId>
                 <version>${version.wildfly-core}</version>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging-annotations</artifactId>
+                <version>${version.org.jboss.logging}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging-processor</artifactId>
+                <version>${version.org.jboss.logging}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.shrinkwrap</groupId>
@@ -171,6 +198,11 @@
                     <groupId>org.wildfly.build</groupId>
                     <artifactId>wildfly-server-provisioning-maven-plugin</artifactId>
                     <version>${version.wildfly.build-tools}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.0.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>

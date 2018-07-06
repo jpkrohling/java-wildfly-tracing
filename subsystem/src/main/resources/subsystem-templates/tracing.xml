@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<config>
-    <extension-module>io.opentracing.contrib.subsystem</extension-module>
-    <subsystem xmlns="urn:io.opentracing.contrib:wildfly:1.0"></subsystem>
-</config>
