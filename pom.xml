@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.opentracing.contrib</groupId>
+    <artifactId>java-wildfly</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>OpenTracing - Wildfly</name>
+    <description>OpenTracing support for Wildfly</description>
+    <url>http://github.com/opentracing-contrib/java-wildfly</url>
+
+    <scm>
+        <url>https://github.com/opentracing-contrib/java-wildfly</url>
+        <connection>scm:git:https://github.com/opentracing-contrib/java-wildfly.git</connection>
+        <developerConnection>scm:git:https://github.com/opentracing-contrib/java-wildfly.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>jpkroehling</id>
+            <name>Juraci Paixão Kröhling</name>
+        </developer>
+    </developers>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <version.jaeger>0.30.0</version.jaeger>
+        <version.junit>4.12</version.junit>
+
+        <version.opentracing>0.31.0</version.opentracing>
+        <version.opentracing.concurrent>0.1.0</version.opentracing.concurrent>
+        <version.opentracing.jaxrs2>0.1.4</version.opentracing.jaxrs2>
+        <version.opentracing.jdbc>0.0.6</version.opentracing.jdbc>
+        <version.opentracing.tracerresolver>0.1.4</version.opentracing.tracerresolver>
+        <version.opentracing.servlet>0.1.0</version.opentracing.servlet>
+
+        <version.org.jboss.shrinkwrap.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap.shrinkwrap>
+        <version.wildfly>11.0.0.Final</version.wildfly>
+        <version.wildfly-core>5.0.0.Final</version.wildfly-core>
+        <version.wildfly.build-tools>1.2.2.Final</version.wildfly.build-tools>
+    </properties>
+
+    <modules>
+        <module>subsystem</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-subsystem-test</artifactId>
+                <version>${version.wildfly-core}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-impl-base</artifactId>
+                <version>${version.org.jboss.shrinkwrap.shrinkwrap}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-feature-pack</artifactId>
+                <version>${version.wildfly}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- OpenTracing -->
+            <dependency>
+                <groupId>io.opentracing</groupId>
+                <artifactId>opentracing-api</artifactId>
+                <version>${version.opentracing}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing</groupId>
+                <artifactId>opentracing-noop</artifactId>
+                <version>${version.opentracing}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing</groupId>
+                <artifactId>opentracing-util</artifactId>
+                <version>${version.opentracing}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-tracerresolver</artifactId>
+                <version>${version.opentracing.tracerresolver}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-web-servlet-filter</artifactId>
+                <version>${version.opentracing.servlet}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-jaxrs2</artifactId>
+                <version>${version.opentracing.jaxrs2}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-concurrent</artifactId>
+                <version>${version.opentracing.concurrent}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-jdbc</artifactId>
+                <version>${version.opentracing.jdbc}</version>
+            </dependency>
+
+            <!-- Concrete tracer -->
+            <dependency>
+                <groupId>io.jaegertracing</groupId>
+                <artifactId>jaeger-core</artifactId>
+                <version>${version.jaeger}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jaegertracing</groupId>
+                <artifactId>jaeger-tracerresolver</artifactId>
+                <version>${version.jaeger}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jaegertracing</groupId>
+                <artifactId>jaeger-thrift</artifactId>
+                <version>${version.jaeger}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <tarLongFileMode>posix</tarLongFileMode>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.build</groupId>
+                    <artifactId>wildfly-feature-pack-build-maven-plugin</artifactId>
+                    <version>${version.wildfly.build-tools}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.build</groupId>
+                    <artifactId>wildfly-server-provisioning-maven-plugin</artifactId>
+                    <version>${version.wildfly.build-tools}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+</project>
