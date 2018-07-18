@@ -39,13 +39,13 @@ public class SubsystemExtension implements Extension {
     @Override
     public void initialize(ExtensionContext context) {
         final SubsystemRegistration subsystem = context.registerSubsystem(SUBSYSTEM_NAME, CURRENT_MODEL_VERSION);
-        subsystem.registerXMLElementWriter(SubsytemParser_1_0.INSTANCE);
+        subsystem.registerXMLElementWriter(() -> SubsytemParser_1_0.INSTANCE);
 
         final ManagementResourceRegistration registration = subsystem.registerSubsystemModel(new SubsystemDefinition());
         registration.registerOperationHandler(GenericSubsystemDescribeHandler.DEFINITION, GenericSubsystemDescribeHandler.INSTANCE);
     }
 
     public void initializeParsers(ExtensionParsingContext context) {
-        context.setSubsystemXmlMapping(SUBSYSTEM_NAME, SubsytemParser_1_0.NAMESPACE, SubsytemParser_1_0.INSTANCE);
+        context.setSubsystemXmlMapping(SUBSYSTEM_NAME, SubsytemParser_1_0.NAMESPACE, () -> SubsytemParser_1_0.INSTANCE);
     }
 }

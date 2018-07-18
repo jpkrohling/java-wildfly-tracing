@@ -15,4 +15,8 @@ public interface TracingLogger extends BasicLogger {
   @LogMessage(level = INFO)
   @Message(id = 1, value = "Activating Tracing Subsystem")
   void activatingSubsystem();
+
+  @LogMessage(level = INFO)
+  @Message(id = 2, value = "Tracing Subsystem is processing deployment")
+  void processingDeployment();
 }

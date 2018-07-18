@@ -26,6 +26,8 @@
     </resources>
 
     <dependencies>
+        <module name="io.opentracing.contrib.initializer"/>
+
         <module name="com.fasterxml.jackson.core.jackson-core"/>
         <module name="com.fasterxml.jackson.core.jackson-databind"/>
         <module name="javax.api"/>

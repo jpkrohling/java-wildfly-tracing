@@ -8,35 +8,27 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <name>OpenTracing - Wildfly - Extension</name>
-    <artifactId>java-wildfly-extension</artifactId>
+    <name>OpenTracing - Wildfly - Tracer Initializer</name>
+    <artifactId>java-wildfly-tracer-initializer</artifactId>
     <packaging>jar</packaging>
-
-    <properties>
-        <module.name>tracing-subsystem</module.name>
-    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>io.opentracing.contrib</groupId>
-            <artifactId>java-wildfly-tracer-initializer</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.core</groupId>
-            <artifactId>wildfly-subsystem-test</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.shrinkwrap</groupId>
-            <artifactId>shrinkwrap-impl-base</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly</groupId>
-            <artifactId>wildfly-web-common</artifactId>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.opentracing</groupId>
+            <artifactId>opentracing-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentracing.contrib</groupId>
+            <artifactId>opentracing-tracerresolver</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.jboss.logging</groupId>
             <artifactId>jboss-logging</artifactId>
@@ -52,11 +44,6 @@
                   projects that depend on this project.-->
             <scope>provided</scope>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

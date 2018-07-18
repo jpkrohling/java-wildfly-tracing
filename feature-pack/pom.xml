@@ -18,6 +18,11 @@
             <artifactId>java-wildfly-extension</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>io.opentracing.contrib</groupId>
+            <artifactId>java-wildfly-tracer-initializer</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>org.wildfly</groupId>
