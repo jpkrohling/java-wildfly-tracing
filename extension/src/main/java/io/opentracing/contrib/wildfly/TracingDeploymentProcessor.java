@@ -11,6 +11,7 @@ import org.jboss.as.server.deployment.Phase;
 import org.jboss.as.server.moduleservice.ServiceModuleLoader;
 import org.jboss.as.web.common.WarMetaData;
 import org.jboss.metadata.web.jboss.JBossWebMetaData;
+import org.jboss.metadata.web.spec.FiltersMetaData;
 import org.jboss.metadata.web.spec.ListenerMetaData;
 import org.jboss.modules.ModuleLoadException;
 
@@ -26,7 +27,7 @@ public class TracingDeploymentProcessor implements DeploymentUnitProcessor {
     ServiceModuleLoader loader = deploymentUnit.getAttachment(Attachments.SERVICE_MODULE_LOADER);
     try {
       loader.loadModule("io.opentracing.contrib.initializer");
-      loader.loadModule("io.opentracing.contrib.servlet");
+      loader.loadModule("io.smallrye.opentracing");
     } catch (ModuleLoadException e) {
       e.printStackTrace();
     }
@@ -43,6 +44,7 @@ public class TracingDeploymentProcessor implements DeploymentUnitProcessor {
     }
     listeners.add(listenerMetaData);
     jbossWebMetaData.setListeners(listeners);
+
   }
 
   @Override
