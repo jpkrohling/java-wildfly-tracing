@@ -24,6 +24,8 @@ public class TracerInitializer implements ServletContextListener {
 
     TracerInitializerLogger.ROOT_LOGGER.registering(tracer.getClass().getName());
     GlobalTracer.register(tracer);
+
+    TracerInitializerLogger.ROOT_LOGGER.initializing(tracer.toString());
   }
 
   @Override

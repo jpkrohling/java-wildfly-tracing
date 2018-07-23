@@ -20,7 +20,7 @@
         <artifact name="${io.jaegertracing:jaeger-tracerresolver}"/>
     </resources>
     <dependencies>
-        <module name="io.jaegertracing.core"/>
+        <module name="io.jaegertracing.client" services="export" export="true"/>
         <module name="io.opentracing.contrib.tracerresolver"/>
     </dependencies>
 </module>

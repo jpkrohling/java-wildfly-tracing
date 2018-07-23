@@ -38,7 +38,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <version.jaeger>0.30.0</version.jaeger>
+        <version.jaeger>0.30.3-SNAPSHOT</version.jaeger>
         <version.junit>4.12</version.junit>
 
         <version.microprofile>1.1</version.microprofile>
@@ -172,17 +172,12 @@
             <!-- Concrete tracer -->
             <dependency>
                 <groupId>io.jaegertracing</groupId>
-                <artifactId>jaeger-core</artifactId>
+                <artifactId>jaeger-client</artifactId>
                 <version>${version.jaeger}</version>
             </dependency>
             <dependency>
                 <groupId>io.jaegertracing</groupId>
                 <artifactId>jaeger-tracerresolver</artifactId>
-                <version>${version.jaeger}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.jaegertracing</groupId>
-                <artifactId>jaeger-thrift</artifactId>
                 <version>${version.jaeger}</version>
             </dependency>
             <dependency>

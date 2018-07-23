@@ -22,8 +22,8 @@
     <dependencies>
         <module name="io.opentracing.api"/>
         <module name="io.opentracing.util"/>
-        <module name="io.opentracing.contrib.servlet"/>
         <module name="io.opentracing.contrib.concurrent"/>
+        <module name="io.opentracing.contrib.servlet"/>
 
         <module name="org.eclipse.microprofile.opentracing"/>
 

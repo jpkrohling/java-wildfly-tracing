@@ -20,7 +20,17 @@
         <artifact name="${io.opentracing.contrib:java-wildfly-tracer-initializer}"/>
     </resources>
     <dependencies>
-        <module name="io.jaegertracing.tracerresolver"/>
         <module name="javaee.api"/>
+        <module name="org.jboss.logging"/>
+
+        <!-- services=export so that services specified in META-INF/services are read by the OT resolver's module -->
+        <module name="io.jaegertracing.tracerresolver" services="export" export="true"/>
+
+        <!-- OpenTracing dependencies -->
+        <module name="io.opentracing.contrib.tracerresolver"/>
+        <module name="io.opentracing.util"/>
+
+        <!-- Instrumentation libraries -->
+        <module name="io.opentracing.contrib.jaxrs" export="true"/>
     </dependencies>
 </module>
