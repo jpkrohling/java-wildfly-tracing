@@ -38,7 +38,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <version.jaeger>0.30.3-SNAPSHOT</version.jaeger>
+        <version.jaeger>0.30.2</version.jaeger>
         <version.junit>4.12</version.junit>
 
         <version.microprofile>1.1</version.microprofile>
