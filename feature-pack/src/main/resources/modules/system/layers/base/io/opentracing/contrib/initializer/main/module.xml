@@ -28,9 +28,11 @@
 
         <!-- OpenTracing dependencies -->
         <module name="io.opentracing.contrib.tracerresolver"/>
-        <module name="io.opentracing.util"/>
+        <module name="io.opentracing.util"/> <!-- GlobalTracer -->
 
-        <!-- Instrumentation libraries -->
-        <module name="io.opentracing.contrib.jaxrs" export="true"/>
+        <!-- MicroProfile Tracing spec and implementation, including the required instrumentation libraries -->
+        <module name="io.smallrye.opentracing" export="true"/>
+
+        <!-- Extra instrumentation libraries not part of the MP-OT spec -->
     </dependencies>
 </module>

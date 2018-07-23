@@ -20,8 +20,12 @@
         <artifact name="${io.smallrye:smallrye-opentracing}"/>
     </resources>
     <dependencies>
-        <module name="org.eclipse.microprofile.opentracing"/>
-        <module name="io.opentracing.contrib.jaxrs"/>
         <module name="javaee.api"/>
+
+        <!-- MicroProfile spec -->
+        <module name="org.eclipse.microprofile.opentracing"/>
+
+        <!-- Instrumentation libraries that are part of MicroProfile OpenTracing spec -->
+        <module name="io.opentracing.contrib.jaxrs" export="true"/>
     </dependencies>
 </module>

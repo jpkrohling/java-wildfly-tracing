@@ -48,7 +48,7 @@
         <version.opentracing.jdbc>0.0.6</version.opentracing.jdbc>
         <version.opentracing.tracerresolver>0.1.4</version.opentracing.tracerresolver>
         <version.opentracing.servlet>0.1.0</version.opentracing.servlet>
-        <version.smallrye.opentracing>1.1.1-SNAPSHOT</version.smallrye.opentracing>
+        <version.smallrye.opentracing>1.1.0</version.smallrye.opentracing>
 
         <version.org.jboss.logging>3.3.1.Final</version.org.jboss.logging>
         <version.org.jboss.logging.annotations>2.0.1.Final</version.org.jboss.logging.annotations>
